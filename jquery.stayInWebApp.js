@@ -16,6 +16,13 @@
 				}
 				//bind to the click event of all specified elements
 				$("body").delegate(selector,"click",function(event) {
+					//TODO: execute all other events if this element has more bound events
+					/* NEEDS TESTING
+					for(i = 0; i < $(this).data('events'); i++) {
+						console.log($(this).data('events'));
+					}
+					*/
+				
 					//get the destination of the link clicked
 					var dest = $(this).attr("href");
 					
