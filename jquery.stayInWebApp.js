@@ -1,10 +1,9 @@
 /*!
  * jQuery stayInWebApp Plugin
- * version: 0.1 (2011-09-08)
- *
+ * version: 0.3 (2011-10-21)
  */
  
- ;(function($) {
+;(function($) {
 	//extend the jQuery object, adding $.stayInWebApp() as a function
 	$.extend({
 		stayInWebApp: function(selector) {
@@ -23,15 +22,18 @@
 					}
 					*/
 				
-					//get the destination of the link clicked
-					var dest = $(this).attr("href");
-					
-					//if the destination is an absolute url, ignore it
-					if(dest.substring(0,4) != 'http') {
-					  //prevent default behavior (opening safari)
-					  event.preventDefault();
-					  //update location of the web app
-					  self.location = dest;
+					//only stay in web app for links that are set to _self (or not set)
+					if($(this).attr("target") == undefined || $(this).attr("target") == "" || $(this).attr("target") == "_self") {
+						//get the destination of the link clicked
+						var dest = $(this).attr("href");
+						
+						//if the destination is an absolute url, ignore it
+						if(dest.substring(0,4) != 'http') {
+						  //prevent default behavior (opening safari)
+						  event.preventDefault();
+						  //update location of the web app
+						  self.location = dest;
+						}
 					}
 				});
 			}
