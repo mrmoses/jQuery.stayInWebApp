@@ -1,6 +1,6 @@
 /*!
  * jQuery stayInWebApp Plugin
- * version: 0.3 (2011-10-21)
+ * version: 0.4 (2012-06-19)
  */
  
 ;(function($) {
