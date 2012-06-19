@@ -26,9 +26,9 @@
 					if($(this).attr("target") == undefined || $(this).attr("target") == "" || $(this).attr("target") == "_self") {
 						//get the destination of the link clicked
 						var dest = $(this).attr("href");
-						
+
 						//if the destination is an absolute url, ignore it
-						if(dest.substring(0,4) != 'http') {
+						if(!dest.match(/^http(s?)/g)) {
 						  //prevent default behavior (opening safari)
 						  event.preventDefault();
 						  //update location of the web app
